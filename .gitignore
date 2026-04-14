@@ -43,3 +43,7 @@ next-env.d.ts
 #neon
 neondb.session.sql
 neondb_T11.session.sql
+neondb*
+
+# VScode settings
+/.vscode/
