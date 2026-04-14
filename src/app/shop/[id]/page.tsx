@@ -7,6 +7,37 @@ import Link from "next/link";
 import ProductActions from "../ProductActions";
 import { auth } from "@/auth";
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
+/**
+ * ProductPage - Server component that displays detailed product information
+ *
+ * @param {Object} props - Component props
+ * @param {Promise<{ id: string }>} props.params - Route parameters containing the product ID
+ *
+ * @returns {Promise<JSX.Element>} Rendered product detail page with product info, artisan details, reviews, and review form
+ *
+ * @description
+ * This async server component:
+ * - Fetches product data by ID from the database
+ * - Retrieves all reviews associated with the product
+ * - Authenticates the current user session and retrieves their user ID
+ * - Fetches artisan information linked to the product
+ * - Calculates average rating from parsed review ratings (0-5 scale)
+ * - Displays product image, title, category, price, and description
+ * - Shows "Edit Description" button only to the product owner
+ * - Renders artisan card with link to artisan profile
+ * - Includes a form to submit new reviews (name, rating, review text)
+ * - Displays all existing customer reviews with names, dates, ratings, and text
+ *
+ * @note Review dates ARE retrieved from the database (review.date field) and formatted
+ * in the frontend using `toLocaleDateString()`. Changes to review dates in the database
+ * WILL reflect on the frontend since this is a server component that fetches fresh data
+ * on each request. However, the date is formatted at render time, so any subsequent
+ * database updates will only appear on page refresh/reload.
+ */
+
 export default async function ProductPage({
   params,
 }: {
@@ -177,6 +208,7 @@ if (currentUserEmail) {
           </div>
         ))}
       </section>
+
     </div>
   );
 }

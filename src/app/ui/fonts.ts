@@ -1,4 +1,4 @@
-import { Kameron } from 'next/font/google'
+import { Kameron, Pacifico } from 'next/font/google'
 import { Lovers_Quarrel } from 'next/font/google'
 import { Source_Sans_3 } from 'next/font/google'
 import { Inter } from 'next/font/google'
@@ -33,7 +33,7 @@ export const nunito = Nunito_Sans({
      variable: "--font-nunito"
 })
 
-export const paris = Parisienne({
+export const paris = Pacifico({
     subsets: ['latin'],
     weight: '400',
      variable: "--font-paris"
