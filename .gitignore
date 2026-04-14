@@ -46,4 +46,5 @@ neondb_T11.session.sql
 neondb*
 
 # VScode settings
-/.vscode/
+/.vscode
+settings.json
