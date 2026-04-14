@@ -41,4 +41,5 @@ yarn-error.log*
 next-env.d.ts
 
 #neon
-neondb.session*
+neondb.session.sql
+neondb_T11.session.sql
